@@ -52,14 +52,14 @@ namespace Prototype
 
     public class Wall : MapSite
     {
-        private bool _dummyBool;
+        protected bool _dummyBool;
 
         public virtual Wall Clone()
         {
             return new Wall(this);
         }
 
-        private Wall(Wall wall)
+        public Wall(Wall wall)
         {
             _dummyBool = wall._dummyBool;
         }
@@ -107,6 +107,20 @@ namespace Prototype
 
     public class BombedWall : Wall
     {
-        private bool _
+        private bool _bomb;
+
+        public override Wall Clone()
+        {
+            return new BombedWall(this);
+        }
+
+        private BombedWall(BombedWall bombedWall) : base(bombedWall)
+        {
+            _dummyBool = bombedWall._dummyBool;
+        }
+
+        public BombedWall()
+        {
+        }
     }
 }
