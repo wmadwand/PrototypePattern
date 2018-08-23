@@ -1,0 +1,2 @@
+# PrototypePattern
+C# simple sample
